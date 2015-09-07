@@ -214,7 +214,7 @@ then
     if test "$GO15VENDOREXPERIMENT" = "1"
     then
       step "Running: go install -v ${FLAGS[@]} $(go list ./... | grep -v /vendor/)"
-      go install -v "${FLAGS[@]}" $pkgs
+      go install -v "${FLAGS[@]}" $(go list ./... | grep -v /vendor/)
     else
       step "Running: godep go install ${FLAGS[@]} $pkgs"
       godep go install "${FLAGS[@]}" $pkgs
