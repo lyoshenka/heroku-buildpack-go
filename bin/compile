@@ -213,7 +213,7 @@ if test -e $build/Godeps
 then
     if test "$GO15VENDOREXPERIMENT" = "1"
     then
-      step "Running: go install -v ${FLAGS[@]} $pkgs"
+      step "Running: go install -v ${FLAGS[@]} $(go list ./... | grep -v /vendor/)"
       go install -v "${FLAGS[@]}" $pkgs
     else
       step "Running: godep go install ${FLAGS[@]} $pkgs"
